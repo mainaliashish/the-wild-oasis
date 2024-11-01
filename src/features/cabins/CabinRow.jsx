@@ -26,6 +26,7 @@ const Cabin = styled.div`
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
+  cursor: pointer;
 `;
 
 const Price = styled.div`
@@ -67,7 +68,14 @@ function CabinRow({ cabin }) {
   return (
     <Table.Row>
       <Img src={image} />
-      <Cabin>{name}</Cabin>
+      <Modal>
+        <Modal.Open opens="edit">
+          <Cabin>{name}</Cabin>
+        </Modal.Open>
+        <Modal.Window name="edit">
+          <CreateCabinForm cabinToUpdate={cabin} />
+        </Modal.Window>
+      </Modal>
       <div>Fits up to {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
       {discount ? (
