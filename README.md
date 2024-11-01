@@ -6,3 +6,4 @@
 - supabase for backend API
 - React Query for remote state management @v4
 - React Query dev tools @v4
+- React hook form @v7
