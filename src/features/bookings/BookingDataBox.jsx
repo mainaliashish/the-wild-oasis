@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { format, isToday } from "date-fns";
 import {
   HiOutlineChatBubbleBottomCenterText,
   HiOutlineCheckCircle,
-  HiOutlineCurrencyDollar,
+  HiOutlineCurrencyPound,
   HiOutlineHomeModern,
 } from "react-icons/hi2";
 
@@ -102,7 +103,12 @@ const Footer = styled.footer`
 `;
 
 // A purely presentational component
-function BookingDataBox({ booking }) {
+function BookingDataBox({
+  booking,
+  isBreakfastChecked = false,
+  priceAfterBreakfast = 0,
+}) {
+  // console.log(isBreakfastChecked, priceAfterBreakfast);
   const {
     created_at,
     startDate,
@@ -160,12 +166,14 @@ function BookingDataBox({ booking }) {
         )}
 
         <DataItem icon={<HiOutlineCheckCircle />} label="Breakfast included?">
-          {hasBreakfast ? "Yes" : "No"}
+          {hasBreakfast || isBreakfastChecked ? "Yes" : "No"}
         </DataItem>
 
         <Price isPaid={isPaid}>
-          <DataItem icon={<HiOutlineCurrencyDollar />} label={`Total price`}>
-            {formatCurrency(totalPrice)}
+          <DataItem icon={<HiOutlineCurrencyPound />} label={`Total price`}>
+            {isBreakfastChecked
+              ? `${formatCurrency(priceAfterBreakfast)} (including breakfast)`
+              : formatCurrency(totalPrice)}
 
             {hasBreakfast &&
               ` (${formatCurrency(cabinPrice)} cabin + ${formatCurrency(
