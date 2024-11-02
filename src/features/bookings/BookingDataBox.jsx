@@ -6,6 +6,7 @@ import {
   HiOutlineCheckCircle,
   HiOutlineCurrencyPound,
   HiOutlineHomeModern,
+  HiOutlineXCircle,
 } from "react-icons/hi2";
 
 import DataItem from "../../ui/DataItem";
@@ -164,10 +165,15 @@ function BookingDataBox({
             {observations}
           </DataItem>
         )}
-
-        <DataItem icon={<HiOutlineCheckCircle />} label="Breakfast included?">
-          {hasBreakfast || isBreakfastChecked ? "Yes" : "No"}
-        </DataItem>
+        {hasBreakfast || isBreakfastChecked ? (
+          <DataItem icon={<HiOutlineCheckCircle />} label="Breakfast included?">
+            Yes
+          </DataItem>
+        ) : (
+          <DataItem icon={<HiOutlineXCircle />} label="Breakfast included?">
+            No
+          </DataItem>
+        )}
 
         <Price isPaid={isPaid}>
           <DataItem icon={<HiOutlineCurrencyPound />} label={`Total price`}>

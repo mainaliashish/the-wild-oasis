@@ -41,6 +41,7 @@ const Stacked = styled.div`
     color: var(--color-grey-500);
     font-size: 1.2rem;
   }
+  cursor: ${(props) => (props.mainTitle ? "pointer" : "")};
 `;
 
 const Amount = styled.div`
@@ -75,8 +76,10 @@ function BookingRow({
   return (
     <Table.Row>
       <Cabin>{cabinName}</Cabin>
-
-      <Stacked>
+      <Stacked
+        mainTitle="true"
+        onClick={() => navigate(`/checkin/${bookingId}`)}
+      >
         <span>{guestName}</span>
         <span>{email}</span>
       </Stacked>

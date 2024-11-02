@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled from "styled-components";
 
 const StyledUserAvatar = styled.div`
@@ -19,3 +20,13 @@ const Avatar = styled.img`
   border-radius: 50%;
   outline: 2px solid var(--color-grey-100);
 `;
+
+function UseAvatar() {
+  return (
+    <StyledUserAvatar>
+      <Avatar></Avatar>
+    </StyledUserAvatar>
+  );
+}
+
+export default UseAvatar;
