@@ -41,7 +41,8 @@ const Stacked = styled.div`
     color: var(--color-grey-500);
     font-size: 1.2rem;
   }
-  cursor: ${(props) => (props.mainTitle ? "pointer" : "")};
+
+  cursor: ${(props) => (props.mainTitle === "true" ? "pointer" : "")};
 `;
 
 const Amount = styled.div`
@@ -84,7 +85,7 @@ function BookingRow({
         <span>{email}</span>
       </Stacked>
 
-      <Stacked>
+      <Stacked mainTitle="false">
         <span>
           {isToday(new Date(startDate))
             ? "Today"
