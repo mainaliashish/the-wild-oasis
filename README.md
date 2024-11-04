@@ -18,3 +18,4 @@
 - date-fns for data time manipulation and javascript date objects
 - localStorage for storing theme state
 - supabase as a back-end (postgresql)
+- react-error-boundary
