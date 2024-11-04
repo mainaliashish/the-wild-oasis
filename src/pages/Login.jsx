@@ -2,6 +2,7 @@ import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
 import Logo from "../ui/Logo";
 import Heading from "../ui/Heading";
+import BookingTable from "../features/bookings/BookingTable";
 const LoginLayout = styled.main`
   min-height: 100vh;
   display: grid;
@@ -18,6 +19,7 @@ function Login() {
       <Logo />
       <Heading as="h4">Login in to your account</Heading>
       <LoginForm />
+      <BookingTable />
     </LoginLayout>
   );
 }

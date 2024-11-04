@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Login as loginApi } from "../../services/apiAuth";
+import { login as loginApi } from "../../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
@@ -13,6 +13,7 @@ export function useLogin() {
       // manually set login data to Query Cache
       queryClient.setQueryData(["user"], user.user);
       navigate("/dashboard", { replace: true });
+      toast.success("Welcome to the dashboard.");
     },
     onError: (err) => {
       console.log("ERROR", err);

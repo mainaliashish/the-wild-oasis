@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
+import { useUser } from "./userUser";
 
 const StyledUserAvatar = styled.div`
   display: flex;
@@ -22,9 +23,17 @@ const Avatar = styled.img`
 `;
 
 function UseAvatar() {
+  const { user } = useUser();
+  console.log(user);
+  if (!user.user_metadata) return;
+  const { fullName, avatar } = user.user_metadata;
   return (
     <StyledUserAvatar>
-      <Avatar></Avatar>
+      <Avatar
+        src={avatar || "default-user.jpg"}
+        alt={`Avatar of ${fullName}`}
+      />
+      <span>{fullName}</span>
     </StyledUserAvatar>
   );
 }

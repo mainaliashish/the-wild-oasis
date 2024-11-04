@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import styled from "styled-components";
 
 const StyledDashboardLayout = styled.div`
@@ -8,7 +9,12 @@ const StyledDashboardLayout = styled.div`
 `;
 
 function DashboardLayout() {
-  return <StyledDashboardLayout></StyledDashboardLayout>;
+  return (
+    <StyledDashboardLayout>
+      <div>Stats</div>
+      <div>Today's Activity</div>
+    </StyledDashboardLayout>
+  );
 }
 
 export default DashboardLayout;
